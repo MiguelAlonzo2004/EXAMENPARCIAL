@@ -29,7 +29,6 @@ namespace EXAMENPARCIAL
 
             if (json != null)
             {
-                lista = JsonConvert.DeserializeObject<List<Animal>>(json);
             }
 
 

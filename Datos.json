@@ -1,0 +1,14 @@
+[
+  {
+    "Nombre": "Pato",
+    "Especie": "Pato",
+    "Alimentacion": "Lechuga",
+    "Tiempo": 1 [
+      {
+        "Vuelaono": "Sí",
+        "Incubacion": 1
+      },
+    ]
+  }
+
+    ]

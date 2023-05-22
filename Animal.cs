@@ -20,7 +20,8 @@ namespace EXAMENPARCIAL
         public List<Ave> Aves { get => aves; set => aves = value; }
 
         public Animal()
-            {
+        {
             Aves = new List<Ave>();
+        }
     }
 }
