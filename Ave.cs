@@ -9,8 +9,9 @@ namespace EXAMENPARCIAL
     {
         string vuelaono;
         int incubación;
-
         public string Vuelaono { get => vuelaono; set => vuelaono = value; }
         public int Incubación { get => incubación; set => incubación = value; }
+
+        
     }
 }

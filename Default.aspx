@@ -31,7 +31,7 @@
             <asp:TextBox ID="TextBoxIncubacion" runat="server"></asp:TextBox>
         </p>
         <p class="lead">
-            <asp:Button ID="Button1" runat="server" Text="Ingresar" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Ingresar" />
         </p>
         <p class="lead">&nbsp;</p>
     </div>
