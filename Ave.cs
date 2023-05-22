@@ -8,9 +8,9 @@ namespace EXAMENPARCIAL
     public class Ave : Animal
     {
         string vuelaono;
-        int incubación;
+        int incubacion;
         public string Vuelaono { get => vuelaono; set => vuelaono = value; }
-        public int Incubación { get => incubación; set => incubación = value; }
+        public int Incubacion { get => incubacion; set => incubacion = value; }
 
         
     }

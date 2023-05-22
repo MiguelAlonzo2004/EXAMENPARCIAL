@@ -17,8 +17,10 @@ namespace EXAMENPARCIAL
         public string Especie { get => especie; set => especie = value; }
         public string Alimentación { get => alimentación; set => alimentación = value; }
         public int Tiempovida { get => tiempovida; set => tiempovida = value; }
+        public List<Ave> Aves { get => aves; set => aves = value; }
+
         public Animal()
             {
-            aves = new List<Ave>();
+            Aves = new List<Ave>();
     }
 }

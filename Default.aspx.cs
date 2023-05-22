@@ -45,102 +45,55 @@ namespace EXAMENPARCIAL
         protected void Button1_Click(object sender, EventArgs e)
         {
             List<Animal> animales = new List<Animal>();
-            albumes = archivo.Leer();
+            animales = Leer();
 
-            //si es la primera vez que se corre hay que crear la lista de universidad
-            //pues el archivo estará en blanco
-            if (albumes == null)
-                albumes = new List<Album>();
 
-            //ver si la universidad que se está ingresando ya existe
-            Album albumExiste = albumes.Find(u => u.Titulo == DropDownListAlbumes.SelectedValue);
+            if (animales == null)
+                animales = new List<Animal>();
 
-            //si no existe la universidad crear una nueva
-            if (albumExiste == null)
+            Animal animalExiste = animales.Find(u => u.Nombre == TextBoxNombre.Text);
+            if (animalExiste == null)
             {
-                //Crear una nueva universidad
-                Album albumNueva = new Album();
+                Animal animalNuevo = new Animal();
 
-                //El nombre de la universidad se trae desde el dropdownlist
-                albumNueva.Titulo = DropDownListAlbumes.SelectedValue;
-                albumNueva.Artista = txtArtista.Text;
-                albumNueva.Publicacion = txtFecha.Text;
+                animalNuevo.Nombre = TextBoxNombre.Text;
+                animalNuevo.Especie = TextBoxEspecie.Text;
+                animalNuevo.Alimentación = TextBoxAlimentacion.Text;
+                animalNuevo.Tiempovida = Convert.ToInt32(TextBoxTiempo.Text);
 
+                Ave aveNueva = new Ave();
+                aveNueva.Vuelaono = DropDownList1.SelectedValue;
+                aveNueva.Incubacion = Convert.ToInt32(TextBoxIncubacion.Text);
 
-                ////crear un nuevo alumno
-                //Alumno alumnoNuevo = new Alumno();
-                ////el nombre del alumno se trae desde el textbox
-                //alumnoNuevo.Nombre = TextBoxAlumno.Text;
+                animalNuevo.Aves.Add(aveNueva);
 
-                //crear el nuevo curso
-                Cancion cancionNueva = new Cancion();
-                //el nombre del curso y la nota se traen desde los textbox
-                cancionNueva.Nombre = txtcancion.Text;
-                cancionNueva.Duracion = Convert.ToInt16(txtDuracion.Text);
-
-                ////Al alumno se le agrega el curso nuevo
-                //alumnoNuevo.Cursos.Add(cursoNuevo);
-
-                //A la universidad se le agregar el alumno nuevo
-                albumNueva.Canciones.Add(cancionNueva);
-
-                //A la lista de universidades se le agrega la nueva universidad
-                albumes.Add(albumNueva);
+                
+                animales.Add(animalNuevo);
             }
-            else //si la universidad ya existe
+            else 
             {
-                //Busar si el alumno ya existe dentro de esa universidad
-                //Alumno alumnoExiste = universidadExiste.Alumnos.Find(a => a.Nombre == TextBoxAlumno.Text);
-                Cancion cancionExiste = albumExiste.Canciones.Find(a => a.Nombre == txtcancion.Text);
+                
+                Ave aveExiste = animalExiste.Aves.Find(a => a.Nombre == TextBoxNombre.Text);
 
-                //Si el alumno no existe crear un nuevo alumno
-                if (cancionExiste == null)
+
+                if (aveExiste == null)
                 {
-                    //Alumno alumnoNuevo = new Alumno();
-                    //alumnoNuevo.Nombre = TextBoxAlumno.Text;
-
-                    Cancion cancionNueva = new Cancion();
-                    cancionNueva.Nombre = txtcancion.Text;
-                    cancionNueva.Duracion = Convert.ToInt32(txtDuracion.Text);
 
 
-                    ////como es un alumno nuevo se crea el curso, sin buscar si ya existe
-                    //Curso cursoNuevo = new Curso();
-                    ////el nombre del curso y la nota se traen desde los textbox
-                    //cursoNuevo.Nombre = TextBoxCurso.Text;
-                    //cursoNuevo.Nota = Convert.ToInt16(TextBoxNota.Text);
+                    Ave aveNueva = new Ave();
+                    aveNueva.Vuelaono = DropDownList1.SelectedValue;
+                    aveNueva.Incubacion = Convert.ToInt32(TextBoxIncubacion.Text);
 
-                    //alumnoNuevo.Cursos.Add(cursoNuevo);
 
-                    //agregamos al alumno con sus cursos a la universidad existente
+                    
 
-                    albumExiste.Canciones.Add(cancionNueva);
+                    animalExiste.Aves.Add(aveNueva);
 
                 }
-                //else //si el alumno ya existe, ver si el curso ya existe
-                //{
-                //    Curso cursoExiste = alumnoExiste.Cursos.Find(c => c.Nombre == TextBoxCurso.Text);
-
-                //    //si el curso no existe se crea un nuevo curso
-                //    if (cursoExiste == null)
-                //    {
-                //        //Se crea un nuevo curso
-                //        Curso cursoNuevo = new Curso();
-                //        //el nombre del curso y la nota se traen desde los textbox
-                //        cursoNuevo.Nombre = TextBoxCurso.Text;
-                //        cursoNuevo.Nota = Convert.ToInt16(TextBoxNota.Text);
-
-                //        //se agrega el curso al alumno 
-                //        alumnoExiste.Cursos.Add(cursoNuevo);
-                //    }
-                //}
-            }
-
-            //Se manda a grabar la lista de universidades
+               
             Grabar(animales);
 
         }
     }
 }
     }
-}
